@@ -5,7 +5,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="style/stylesheet.css">
-        <script src="reviews.js" defer></script>
+        <script src="main.js" defer></script>
+        <script src="make_review.js" defer></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
@@ -19,10 +20,57 @@
 
         <div class="content">
             <h1>UniCourses</h1>
-            <p>Course reviews from older students of EURECOM</p>
+            <h4>Make new review for:</h4>
+            <h3 id="name_course_review_list"></h3>
+            <form id="new_review_form">
+                <fieldset>
+                    <legend>How was the teacher?</legend>
+                    <input type="radio" id="1" name="teacher_score" value=1>
+                    <label for="1">1</label>
+                    <input type="radio" id="2" name="teacher_score" value=2>
+                    <label for="2">2</label>
+                    <input type="radio" id="3" name="teacher_score" value=3>
+                    <label for="3">3</label>
+                    <input type="radio" id="4" name="teacher_score" value=4>
+                    <label for="4">4</label>
+                    <input type="radio" id="5" name="teacher_score" value=5>
+                    <label for="5">5</label>
+                </fieldset>
 
-            <div class="flex-container" id="review_container">
-            </div>
+                <fieldset>
+                    <legend>How hard was the course?</legend>
+                    <input type="radio" id="1" name="hardness_score" value=1>
+                    <label for="1">1</label>
+                    <input type="radio" id="2" name="hardness_score" value=2>
+                    <label for="2">2</label>
+                    <input type="radio" id="3" name="hardness_score" value=3>
+                    <label for="3">3</label>
+                    <input type="radio" id="4" name="hardness_score" value=4>
+                    <label for="4">4</label>
+                    <input type="radio" id="5" name="hardness_score" value=5>
+                    <label for="5">5</label>
+                </fieldset>
+
+                <fieldset>
+                    <legend>How big was the amount of work in this course?</legend>
+                    <input type="radio" id="1" name="workamount_score" value=1>
+                    <label for="1">1</label>
+                    <input type="radio" id="2" name="workamount_score" value=2>
+                    <label for="2">2</label>
+                    <input type="radio" id="3" name="workamount_score" value=3>
+                    <label for="3">3</label>
+                    <input type="radio" id="4" name="workamount_score" value=4>
+                    <label for="4">4</label>
+                    <input type="radio" id="5" name="workamount_score" value=5>
+                    <label for="5">5</label>
+                </fieldset>
+
+                <fieldset>
+                    <legend>What is your review of this course? Tell us what you think is important to know.</legend>
+                    <textarea name="text_review" rows="6" cols="50"></textarea>
+                </fieldset>
+                <button type="submit">Register review</button>              
+            </form>
         </div>
 
         
