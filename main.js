@@ -52,6 +52,7 @@ class Course {
     }
 }
 
+//When you just parse an object from localstorage, you lose the original class methods so here we "get them back"
 function parseLocalstorage(unparsed){
     raw = JSON.parse(unparsed)
     courses = []
