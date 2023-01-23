@@ -8,37 +8,71 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
-
+        <!--Navigation bar-->
         <div class="topnav">
             <i class="fa-regular fa-circle-info" style="color: white"></i>
-            <a id="help_btn" href="#">Help</a>
-            <a id="login_btn" href="#">Log In</a>
-            <a id="signup_btn" href="#">Sign up</a>
+            
+            <table id="left_table">
+                <tr>
+                    <th><img src="icons/icons8-information-64.png" width="30px"></th>
+                    <th><a id="help_btn" href="#">Help</a> </th>
+                </tr>
+            </table>
+
+            <table id="right_table">
+                <tr>
+                    <th><img src="icons/icons8-user-30.png" width="30px"></th>
+                    <th><a id="login_btn" href="#">Log In | Sign In</a></th>
+                </tr>
+            </table>
+
+            <!--<a id="help_btn" href="#">Help</a> -->
+            <!--<a id="login_btn" href="#">Log In | Sign In</a> -->
+            <!-- <a id="signup_btn" href="#">Sign up</a> -->
         </div>
 
-        <div class="content">
+        <!--Logo and title-->
+        <div class="header">
+            <img id="logo" src="icons/logo.PNG" float="center">
             <h1>UniCourses</h1>
-            <p>Course reviews from older students of EURECOM</p>
-            
-            <h3>Search for a course:</h3>
+            <p>Course reviews from older students of different universities</p>
+            <br>
+        </div>
+
+        <!--Website content-->
+        <div class="content">
+            <h3>Choose University:</h3>
             <div class="search-container">
                 <form action="#">
                     <input type="text" placeholder="Search.." name="search">
                     <button type="submit"><i class="fa fa-search"></i></button>
                 </form>
             </div>
-
             <div class="flex-container">
-                <div class="flex-items"><p>Course 1</p></div>
-                <div class="flex-items"><p>Course 2</p></div>
-                <div class="flex-items"><p>Course 3</p></div>
+                <br>
+                <div class="flex-items"><a id="uni_btn" href="#" >University 1</a></div>
+                <br>
+                <div class="flex-items"><a id="uni_btn" href="#">University 2</a></div>
+                <br>
+                <div class="flex-items"><a id="uni_btn" href="#">University 3</a></div>
             </div>
-        </div>
 
+            <!--Footer-->
+            <div class="flex-container">
+                <table id="table1">
+                <tr>
+                    <th><div class="flex-items"><img src="icons/icons8-home-page-50.png" width="40px"></div></th>
+                    <th><div class="flex-items"><img src="icons/icons8-search-50.png" width="40px"></div></th>
+                    <th><div class="flex-items"><img src="icons/icons8-papers-64.png" width="40px"></div></th>
+                </tr>
+                <tr>
+                    <th><div class="flex-items">Choose university</div></th>
+                    <th><div class="flex-items">Find your courses</div></th>
+                    <th><div class="flex-items">Read and write reviews</div></th>
+                </tr>
+            </div>
+
+        </div>
         
-
-        <div class="footer">
-            <p>Footer</p>
-        </div>
     </body>
 </html>
