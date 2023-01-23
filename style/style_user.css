@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    font-weight: 200;
+  }
+  
+  body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-weight: 200;
+  }
+
+  /* Style the top navigation bar */
+  .topnav {
+    flex-direction: row;
+    overflow: hidden;
+    background-color: #fff;
+    color: black;
+  }
+  
+  /* Style the topnav links */
+  .topnav a , .topnav i{
+    float: left;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 5px 10px;
+    text-decoration: none;
+  }
+  
+  /* Change color on hover */
+  .topnav a:hover {
+    background-color: #DBE3FF;
+    -moz-border-radius-topleft: 10px;
+    -moz-border-radius-topright: 10px;
+    -moz-border-radius-bottomright: 10px;
+    -moz-border-radius-bottomleft: 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+    transition: 0.5s;
+    font-size: large;
+  }
+  
+  /*Style the header*/
+  .header {
+    background-color: #fff;
+    padding: 10px;
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    font-size: larger;
+  }
+
+  /* Style the content */
+  .user-content {
+    background-color: #DBE3FF;
+    padding: 10px;
+    margin: auto;
+    width: 75%;
+    text-align: left;
+    -moz-border-radius-topleft: 20px;
+    -moz-border-radius-topright: 20px;
+    -moz-border-radius-bottomright: 20px;
+    -moz-border-radius-bottomleft: 20px;
+    -webkit-border-radius: 20px 20px 20px 20px;
+    border-radius: 20px 20px 20px 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .user-container {
+    display: block;
+    padding-left: 20%;
+  }
+  input {
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 17px;
+    border: none;
+    border-radius: 5px;
+    width: 80%;
+  }
+  button {
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 17px;
+    border: none;
+    border-radius: 5px;
+    background-color: #fff;
+    color: black;
+  }
+  button:hover {
+    background-color: #f2f2f2;
+    transition: 0.5s;
+  }
+  /*When we have a smaller screen*/
+  @media screen and (max-width: 500px) {
+    .user-content{
+      grid-template-columns: 1fr;
+    }
+  }

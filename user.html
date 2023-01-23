@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>UniCourses</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style/style_user.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="user.js"></script>
+    </head>
+    <body>
+        <div class="topnav">
+            <i class="fa-regular fa-circle-info" style="color: white"></i>
+            <table class="left_table">
+                <tr>
+                    <th><img src="icons/icons8-information-64.png" width="30px"></th>
+                    <th><a id="help_btn" href="#">Help</a> </th>
+                </tr>
+                <tr>
+                    <th><img src="icons/icons8-left-arrow-50.png" width="30px"></th>
+                    <th><a id="help_btn" href="index.html">Back</a></th>
+                </tr>
+            </table>
+            
+
+        </div>
+
+        <div class="user-content">
+            <div class="user-container">
+                <h1>Log in</h1>
+                <p>For dummy user mode: password = dummy</p>
+                <form method="post">
+                    <input type="email" placeholder="Email" id="login_email"><br>
+                    <input type="password" placeholder="Password" id="login_password"><br>
+                    <button type="button" name="button" onclick="login_button();">Log in</button>
+                </form>
+            </div>
+            <div class="user-container">
+                <h1>Sign up</h1>
+                <form method="post">
+                    <input type="text" placeholder="First name" id="register_firstname"><br>
+                    <input type="text" placeholder="Last Name" id="register_lastname"><br>
+                    <input type="email" placeholder="Email" id="register_email"><br>
+                    <input type="password" placeholder="Password" id="register_password"><br>
+                    <input type="password" placeholder="Repeat password" id="register_repeat_password"><br>
+                    <button type="button" name="button" onclick="register_button();">Register</button>
+                </form>
+            </div>
+        </div>
+
+    </body>
+</html>
