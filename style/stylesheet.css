@@ -55,14 +55,18 @@
     align-content: stretch;
   }
   
-  .flex-items {
+.flex-items {
     display: block;
     flex-grow: 0;
     flex-shrink: 1;
     flex-basis: auto;
     align-self: auto;
     order: 0;
-  }
+}
+
+.flex-items:hover {
+  background-color: #888;
+}
 
 #login_btn {
     float: right;
