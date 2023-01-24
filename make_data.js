@@ -1,12 +1,25 @@
 //Generate some example data and store it to localstorage
-let webint = new Course('webint', 'Interaction Design and Development of Modern Web Applications')
-let review001 = new Review('webint', 4, 3, 3, 'Decent course with a good teacher.');
-let review002 = new Review('webint', 2, 5, 2, 'Good course with a decent teacher.');
-let review003 = new Review('webint', 4, 5, 4, 'Like it!');
-webint.addReview(review001);
-webint.addReview(review002);
-webint.addReview(review003);
-var courses = [webint];
+var long_names = ['Personal Development and Team Leadership','Machine Learning and Intelligent Systems','Mobile Communication Systems','Secure Communications','Interaction Design and Development of Modern Web Applications'];
+var short_names = ['TeamLead','MALIS','MobSys','SecCom','WebInt'];
+var ects_list = [4,5,5,5,2.5];
+var courses = []
+
+function ranInt(min, max) { // min and max included 
+    return Math.floor(Math.random() * (max - min + 1) + min)
+}
+
+for (var i = 0, l = long_names.length; i < l; i++) {
+    let webint = new Course(short_names[i], long_names[i], ects_list[i])
+    let review001 = new Review(short_names[i], ranInt(1,5), ranInt(1,5), ranInt(1,5), 'Text review');
+    let review002 = new Review(short_names[i], ranInt(1,5), ranInt(1,5), ranInt(1,5), 'Another text review');
+    let review003 = new Review(short_names[i], ranInt(1,5), ranInt(1,5), ranInt(1,5), 'A third text review');
+    webint.addReview(review001);
+    webint.addReview(review002);
+    webint.addReview(review003);
+    webint.updateScore();
+    courses.push(webint);
+}
+
 
 //We write this default data to localstorage, and then we will read from localstorage when we show reviews in reviews.js
 const itemSet = (localStorage.getItem('courses') == null);

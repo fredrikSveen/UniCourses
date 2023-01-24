@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>UniCourses</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="main.js" defer></script>
+        <script src="search.js" defer></script>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+
+        <div class="navbar">
+            <i class="fa-regular fa-circle-info" style="color: white"></i>
+            <a id="help_btn" href="index.html">Home</a>
+            <a id="login_btn" href="#">Log Out</a>
+        </div>
+
+        <div class="content">
+            <h1>EURECOM</h1>
+            
+			<div class="search">
+				<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for courses" class="fa fa-search">
+				
+				
+				<div class="dropdown">
+					<button onclick="myFunction1()" class="dropbtn">ECTS</button>
+					<div id="myDropdown" class="dropdown-content">
+					  <a href="#">2.5</a>
+					  <a href="#">5</a>
+					</div>
+				
+				<button onclick="myFunction1()" class="dropbtn">Score</button>
+					<div id="myDropdown" class="dropdown-content">
+					  <a href="#">1/5</a>
+					  <a href="#">2/5</a>
+					  <a href="#">3/5</a>
+					  <a href="#">4/5</a>
+					  <a href="#">5/5</a>
+					</div>
+					
+				</div>
+			</div>
+			
+			<table>
+                <thead>
+                    <tr class="header">
+                        <th style="width:50%;">Course Name</th>
+                        <th style="width:30%;">Course</th>
+                        <th style="width:10%;">ETCS</th>
+                        <th style="width:10%;">Score</th>
+                    </tr>
+                </thead>
+                <tbody id="courses_table">
+                </tbody>
+			</table>
+        </div>
+    </body>
+</html>

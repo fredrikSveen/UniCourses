@@ -13,7 +13,7 @@ class Review {
         let div1 = document.createElement('div');
         div1.setAttribute('class', 'test');
         div1.innerHTML = `
-            <div class='flec_container' style='border-bottom-style: solid;'>
+            <div class='flex_container' style='border-bottom-style: solid;'>
                 <p>Teacher score: ${this.teacher_score}</p>
                 <p>Hardness score: ${this.hardness_score}</p>
                 <p>Workamount score: ${this.workamount_score}</p>
@@ -24,14 +24,15 @@ class Review {
         `;
         document.getElementById('review_container').appendChild(div1);
     }
-
 }
 
 class Course {
-    constructor(name_short, name_long) {
-        this.name_short = name_short
-        this.name_long = name_long
-        this.reviews = []
+    constructor(name_short, name_long, ects) {
+        this.name_short = name_short;
+        this.name_long = name_long;
+        this.ects = Number(ects);
+        this.reviews = [];
+        this.avg_score;
     }
     addReview(review){
         this.reviews.push(review)
@@ -52,6 +53,25 @@ class Course {
         }
         this.avg_score = Math.round(((tmp_sum/num_reviews) + Number.EPSILON) * 100) /100;
     }
+    showCourse(){
+        var tbody = document.getElementById('courses_table');
+        var row = tbody.insertRow()
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
+        var cell4 = row.insertCell(3);
+        cell1.innerHTML = `<a href="reviews.html" onclick="return change_active(${this.getIndex()});">${this.name_long}</a>`;
+        cell2.innerHTML = this.name_short;
+        cell3.innerHTML = this.ects;
+        cell4.innerHTML = this.avg_score;
+    }
+    getIndex(){
+        return courses.indexOf(this);
+    }
+}
+
+function change_active (courses_index) {
+    window.localStorage.setItem('active_index', JSON.stringify(courses_index))
 }
 
 //When you just parse an object from localstorage, you lose the original class methods so here we "get them back"
@@ -61,18 +81,20 @@ function parseLocalstorage(unparsed){
     for (var i = 0, l = raw.length; i < l; i++) {
         let name_short = raw[i].name_short;
         let name_long = raw[i].name_long;
-        var course = new Course(name_short, name_long)
+        let ects = raw[i].ects;
+        var course = new Course(name_short, name_long, ects)
         
         for (var j = 0, m = raw[i].reviews.length; j < m; j++) {
             let course_short = raw[i].reviews[j].course_short;
-            let teacher_score = raw[i].reviews[j].teacher_score;
-            let hardness_score = raw[i].reviews[j].hardness_score;
-            let workamount_score = raw[i].reviews[j].workamount_score;
+            let teacher_score = Number(raw[i].reviews[j].teacher_score);
+            let hardness_score = Number(raw[i].reviews[j].hardness_score);
+            let workamount_score = Number(raw[i].reviews[j].workamount_score);
             let text_review = raw[i].reviews[j].text_review;
             var review = new Review(course_short, teacher_score, hardness_score, workamount_score ,text_review);
             course.addReview(review);
         }
-        courses.push(course)
+        course.updateScore();
+        courses.push(course);
     }
     return courses;
 }
