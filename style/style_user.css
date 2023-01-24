@@ -56,7 +56,7 @@
   /* Style the content */
   .user-content {
     background-color: #DBE3FF;
-    padding: 10px;
+    padding: 10px 10px 30px 10px;
     margin: auto;
     width: 75%;
     text-align: left;
@@ -96,7 +96,7 @@
     transition: 0.5s;
   }
   /*When we have a smaller screen*/
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 600px) {
     .user-content{
       grid-template-columns: 1fr;
     }
