@@ -17,5 +17,7 @@ function registerReview(event){
     window.location.href="reviews.html";
 }
 
+document.getElementById('name_course_review_list').innerHTML = courses[active_index].name_long
+
 const form = document.getElementById('new_review_form');
 form.addEventListener('submit', registerReview);

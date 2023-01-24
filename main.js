@@ -13,8 +13,10 @@ class Review {
         let div1 = document.createElement('div');
         div1.setAttribute('class', 'test');
         div1.innerHTML = `
-            <div class='flec_container'>
+            <div class='flec_container' style='border-bottom-style: solid;'>
                 <p>Teacher score: ${this.teacher_score}</p>
+                <p>Hardness score: ${this.hardness_score}</p>
+                <p>Workamount score: ${this.workamount_score}</p>
                 <p>Text review: ${this.text_review}</p>
                 <p>Overall score: ${this.score}</p>
                 <p>Written: ${this.date}</p>
@@ -54,8 +56,8 @@ class Course {
 
 //When you just parse an object from localstorage, you lose the original class methods so here we "get them back"
 function parseLocalstorage(unparsed){
-    raw = JSON.parse(unparsed)
-    courses = []
+    var raw = JSON.parse(unparsed)
+    var courses = []
     for (var i = 0, l = raw.length; i < l; i++) {
         let name_short = raw[i].name_short;
         let name_long = raw[i].name_long;
@@ -76,5 +78,5 @@ function parseLocalstorage(unparsed){
 }
 
 //Get data from the localstorage every time a page load.
-courses = parseLocalstorage(localStorage.getItem('courses'));
+var courses = parseLocalstorage(localStorage.getItem('courses'));
 var active_index = Number(localStorage.getItem('active_index'));
