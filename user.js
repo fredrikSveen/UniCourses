@@ -98,14 +98,6 @@ class UserSystem {
 
     // Register
     register(firstname, lastname, email, password, repeated_password){
-        var namestring = firstname + ' ' + lastname;
-
-        //Updating the localStorage by adding the new user
-        //users_saved[email.toLowerCase()] = [password, namestring];
-        users[email.toLowerCase()] = [password, namestring];
-        //localStorage.setItem('users', JSON.stringify(user));
-        return true;
-    /*
         if (this.no_name(firstname, lastname)){
             if (this.email_is_invalid(email)){
                 if (this.email_exists(email)){
@@ -115,15 +107,15 @@ class UserSystem {
                                 var namestring = firstname + ' ' + lastname;
 
                                 //Updating the localStorage by adding the new user
-                                users_saved[email.toLowerCase()] = [password, namestring];
-                                localStorage.setItem('users', JSON.stringify(users_saved));
+                                users[email.toLowerCase()] = [password, namestring];
+                                //localStorage.setItem('users', JSON.stringify(users_saved));
                                 return true;
                             }
                         }
                     }
                 }
             }
-        }*/
+        }
     }
     
 }
