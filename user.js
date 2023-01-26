@@ -1,9 +1,5 @@
-// MAIN DICTIONARY FOR ALL USERS 
-// We note that this is not a safe way to store passwords, but this is just for demonstration
-// Key: email
-// Value 1: password
-// Value 2: name
-let users = {};
+// All the saved users
+var users_saved = JSON.parse(localStorage.getItem('users'));
 
 // USER CLASS
 class UserSystem {
@@ -29,7 +25,7 @@ class UserSystem {
     }
     // If the email already exists
     email_exists(email){
-        if (email.toLowerCase() in users){
+        if (email.toLowerCase() in users_saved){
             alert('Email already exists, please log in.');
             return false;
         }
@@ -37,8 +33,10 @@ class UserSystem {
     }
     // If the email does not exist
     email_not_existing(email){
-        if (email.toLowerCase() in users){return;}
-        alert('Email does not exist.')
+        if (email.toLowerCase() in users_saved){return true;}
+        alert('Email does not exist, please sign up.');
+        email.style.color = "red";
+        return false;
     }
     // If no password is written
     no_password(password){
@@ -80,44 +78,53 @@ class UserSystem {
     ////////////////////////////////////////////////////////////
     // Log in
     login(email, password){
-        var e0 = this.email_is_invalid(email);
-        var e1 = this.no_password(password);
-        this.email_not_existing(email);
-
-        if (users[email.toLowerCase()][0] == password){
-            //alert('Logged in');
-            location.assign("index.html");
-        }
-        else {
-            alert('Wrong password. The password you wrote was '+ password+', but the real password is ' + users[email.toLowerCase()][0]);
-            //alert('Wrong password, please try again.');
+        if (this.email_is_invalid(email)){
+            if (this.email_not_existing(email)){
+                if (this.no_password(password)){
+                    if (users_saved[email.toLowerCase()][0] == password){
+                        // Saving the logged in label to use in other HTML files
+                        localStorage.setItem('loggedin', JSON.stringify(true));
+                        location.assign("index.html");
+                    }
+                    else {
+                        //alert('Wrong password. The password you wrote was '+ password+', but the real password is ' + users[email.toLowerCase()][0]);
+                        alert('Wrong password, please try again.');
+                    }
+                }
+            }
         }
     }
 
     // Register
     register(firstname, lastname, email, password, repeated_password){
-        var e0 = this.no_name(firstname, lastname);
-        var e1 = this.email_is_invalid(email);
-        var e2 = this.email_exists(email);
-        var e3 = this.no_password(password);
-        var e4 = this.register_password(password);
-        var e5 = this.repeat_password_check(password, repeated_password);
+        if (this.no_name(firstname, lastname)){
+            if (this.email_is_invalid(email)){
+                if (this.email_exists(email)){
+                    if (this.no_password(password)){
+                        if (this.register_password(password)){
+                            if (this.repeat_password_check(password, repeated_password)){
+                                var namestring = firstname + ' ' + lastname;
 
-        if (Boolean(e0) && Boolean(e1) && Boolean(e2) && Boolean(e3) && Boolean(e4) && Boolean(e5)){
-            var namestring = firstname + ' ' + lastname;
-            users[email.toLowerCase()] = [password, namestring];
-            return true;
+                                //Updating the localStorage by adding the new user
+                                users_saved[email.toLowerCase()] = [password, namestring];
+                                localStorage.setItem('users', JSON.stringify(users_saved));
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 
 }
 
 function login_button(){
-  var login_email = document.getElementById("login_email").value;
-  var login_password = document.getElementById("login_password").value;
+    var login_email = document.getElementById("login_email").value;
+    var login_password = document.getElementById("login_password").value;
 
-  let new_login = new UserSystem();
-  new_login.login(login_email, login_password);
+    let new_login = new UserSystem();
+    new_login.login(login_email, login_password);
 }
 
 function register_button() {
@@ -135,6 +142,6 @@ function register_button() {
     }
 }
 
-// Some dummy users
-let user1 = new UserSystem();
-user1.register('Test','Test','test@test.com','Test12345','Test12345');
+// Dummy user:
+//let user1 = new UserSystem();
+//user1.register('Test','Test','test@test.com','Test12345','Test12345');
