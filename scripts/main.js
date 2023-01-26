@@ -54,19 +54,6 @@ class Course {
         this.avg_score = Math.round(((tmp_sum/num_reviews) + Number.EPSILON) * 100) /100;
     }
     showCourse(){
-        /*
-        var tbody = document.getElementById('courses_table');
-        var row = tbody.insertRow();
-        var cell1 = row.insertCell(0);
-        var cell2 = row.insertCell(1);
-        var cell3 = row.insertCell(2);
-        var cell4 = row.insertCell(3);
-        cell1.innerHTML = `<a href="reviews.html" onclick="return change_active(${this.getIndex()});">${this.name_long}</a>`;
-        cell2.innerHTML = this.name_short;
-        cell3.innerHTML = this.ects;
-        cell4.innerHTML = this.avg_score;
-        */
-        
         let tr1 = document.createElement('tr');
         let indx = this.getIndex()
         tr1.setAttribute('onClick', `change_active(${indx})`);
