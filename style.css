@@ -87,12 +87,13 @@
 
 #courses th, #courses td {
   text-align: left; /* Left-align text */
-  padding: 12px; /* Add padding */
+  margin: 12px;  /*Add padding */
 }
 
 #courses tr {
   /* Add a bottom border to all table rows */
   border-bottom: 1px solid #ddd;
+  width: 100%;
 }
 
 #courses tr.header, #courses tr:hover {
