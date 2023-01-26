@@ -1,6 +1,5 @@
 // All the saved users
-var users = {}
-//var users_saved = JSON.parse(localStorage.getItem('users'));
+var users_saved = JSON.parse(localStorage.getItem('users'));
 
 // USER CLASS
 class UserSystem {
@@ -26,7 +25,7 @@ class UserSystem {
     }
     // If the email already exists
     email_exists(email){
-        if (email.toLowerCase()in users){
+        if (email.toLowerCase()in users_saved){
             alert('Email already exists, please log in.');
             return false;
         }
@@ -34,9 +33,8 @@ class UserSystem {
     }
     // If the email does not exist
     email_not_existing(email){
-        if (email.toLowerCase() in users){return true;}
+        if (email.toLowerCase() in users_saved){return true;}
         alert('Email does not exist, please sign up.');
-        email.style.color = "red";
         return false;
     }
     // If no password is written
@@ -82,7 +80,7 @@ class UserSystem {
         if (this.email_is_invalid(email)){
             if (this.email_not_existing(email)){
                 if (this.no_password(password)){
-                    if (users[email.toLowerCase()][0] == password){
+                    if (users_saved[email.toLowerCase()][0] == password){
                         // Saving the logged in label to use in other HTML files
                         localStorage.setItem('loggedin', JSON.stringify(true));
                         location.assign("index.html");
@@ -107,8 +105,8 @@ class UserSystem {
                                 var namestring = firstname + ' ' + lastname;
 
                                 //Updating the localStorage by adding the new user
-                                users[email.toLowerCase()] = [password, namestring];
-                                //localStorage.setItem('users', JSON.stringify(users_saved));
+                                users_saved[email.toLowerCase()] = [password, namestring];
+                                localStorage.setItem('users', JSON.stringify(users_saved));
                                 return true;
                             }
                         }
@@ -144,5 +142,5 @@ function register_button() {
 }
 
 // Dummy user:
-let user1 = new UserSystem();
-user1.register('Test','Test','test@test.com','Test12345','Test12345');
+//let user1 = new UserSystem();
+//user1.register('Test','Test','test@test.com','Test12345','Test12345');
