@@ -23,9 +23,9 @@
             <h4>Make new review for:</h4>
             <h3 id="name_course_review_list"></h3>
             <form id="new_review_form">
-                <fieldset>
+                <fieldset required>
                     <legend>How was the teacher?</legend>
-                    <input type="radio" id="1" name="teacher_score" value=1>
+                    <input type="radio" id="1" name="teacher_score" value=1 required>
                     <label for="1">1</label>
                     <input type="radio" id="2" name="teacher_score" value=2>
                     <label for="2">2</label>
@@ -39,7 +39,7 @@
 
                 <fieldset>
                     <legend>How hard was the course?</legend>
-                    <input type="radio" id="1" name="hardness_score" value=1>
+                    <input type="radio" id="1" name="hardness_score" value=1 required>
                     <label for="1">1</label>
                     <input type="radio" id="2" name="hardness_score" value=2>
                     <label for="2">2</label>
@@ -53,7 +53,7 @@
 
                 <fieldset>
                     <legend>How big was the amount of work in this course?</legend>
-                    <input type="radio" id="1" name="workamount_score" value=1>
+                    <input type="radio" id="1" name="workamount_score" value=1 required>
                     <label for="1">1</label>
                     <input type="radio" id="2" name="workamount_score" value=2>
                     <label for="2">2</label>
@@ -67,7 +67,7 @@
 
                 <fieldset>
                     <legend>What is your review of this course? Tell us what you think is important to know.</legend>
-                    <textarea name="text_review" rows="6" cols="50"></textarea>
+                    <textarea name="text_review" rows="6" cols="50" required></textarea>
                 </fieldset>
                 <button type="submit">Register review</button>              
             </form>
