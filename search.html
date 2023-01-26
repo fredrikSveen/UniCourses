@@ -4,16 +4,16 @@
         <title>UniCourses</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="main.js" defer></script>
-        <script src="search.js" defer></script>
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    </head>
+	    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+   </head>
     <body>
 
         <div class="navbar">
             <i class="fa-regular fa-circle-info" style="color: white"></i>
-            <a id="help_btn" href="index.html">Home</a>
+            <a id="help_btn" href="#">Help</a>
             <a id="login_btn" href="#">Log Out</a>
         </div>
 
@@ -21,40 +21,165 @@
             <h1>EURECOM</h1>
             
 			<div class="search">
-				<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for courses" class="fa fa-search">
+				<form action="#">
+					<input id="searchInput" type="text" placeholder="Search for courses" onkeyup="searchFunction()">
+			    	
+					<input id="searchScore" type="text" placeholder="Search by score" onkeyup="searchScore()">
+					<input id="searchECTS" type="text" placeholder="Search by ECTS" onkeyup="searchECTS()">
+				</form>
+			</div>
+			
+			<br>
+			<br>
+			<br>
+		
+			<div class="container">
+			
+				<div class="responsive-table">
 				
-				
-				<div class="dropdown">
-					<button onclick="myFunction1()" class="dropbtn">ECTS</button>
-					<div id="myDropdown" class="dropdown-content">
-					  <a href="#">2.5</a>
-					  <a href="#">5</a>
-					</div>
-				
-				<button onclick="myFunction1()" class="dropbtn">Score</button>
-					<div id="myDropdown" class="dropdown-content">
-					  <a href="#">1/5</a>
-					  <a href="#">2/5</a>
-					  <a href="#">3/5</a>
-					  <a href="#">4/5</a>
-					  <a href="#">5/5</a>
-					</div>
+					<table class="table" >
+						<thead>
+							<tr class="spacer"><td colspan="100"></td></tr>
+							
+							<tr class="header">
+								<th style="width:50%;">Full Course Name</th>
+								<th style="width:30%;">Short Course Name</th>
+								<th style="width:10%;">ETCS</th>
+								<th style="width:10%;">Score</th>
+							</tr>
+						</thead>
+						
+						<tbody id="courses">
+						
+							<tr class="spacer"><td colspan="100"></td></tr>
+							
+							<tr>
+								<td>Personal Development and Team Leadership</td>
+								<td>TeamLead</td>
+								<td>2.5</td>
+								<td>4</td>
+							</tr>
+							
+							<tr class="spacer"><td colspan="100"></td></tr>
+							
+							<tr>
+								<td>Machine Learning and Intelligent Systems</td>
+								<td>Malis</td>
+								<td>5</td>
+								<td>1.5</td>
+							</tr>
+							
+							<tr class="spacer"><td colspan="100"></td></tr>
+							
+							<tr>
+								<td>Mobile Communication Systems</td>
+								<td>MobSyb</td>
+								<td>2.5</td>
+								<td>3</td>
+							</tr>
+							
+							<tr class="spacer"><td colspan="100"></td></tr>
+							
+							<tr>
+								<td>Secure Communications</td>
+								<td>SecCom</td>
+								<td>2.5</td>
+								<td>4</td>
+							</tr>
+							
+							<tr class="spacer"><td colspan="100"></td></tr>
+							
+							<tr>
+								<td>Interaction Design and Development of Modern Web Applications</td>
+								<td>WebInt</td>
+								<td>2.5</td>
+								<td>4</td>
+							</tr>
+							
+							<tr class="spacer"><td colspan="100"></td></tr>
+							
+							<tr>
+								<td>System and Network Security</td>
+								<td>Syssec</td>
+								<td>2</td>
+								<td>3</td>
+							</tr>
+						</tbody>
+					</table>
 					
 				</div>
 			</div>
-			
-			<table id="courses">
-                <thead>
-                    <tr class="header">
-                        <th style="width:50%;">Full course Name</th>
-                        <th style="width:30%;">Course shortname</th>
-                        <th style="width:10%;">ETCS</th>
-                        <th style="width:10%;">Score</th>
-                    </tr>
-                </thead>
-                <tbody id="courses_table">
-                </tbody>
-			</table>
         </div>
+
     </body>
+	
+	
+	<script>
+	function searchFunction() {
+	  // Declare variables
+	  var input, filter, table, tr, td, i, txtValue;
+	  input = document.getElementById("searchInput");
+	  filter = input.value.toUpperCase();
+	  table = document.getElementById("courses");
+	  tr = table.getElementsByTagName("tr");
+
+	  // Loop through all table rows, and hide those who don't match the search query
+	  for (i = 0; i < tr.length; i++) {
+		td = tr[i].getElementsByTagName("td")[2];
+		if (td) {
+		  txtValue = td.textContent || td.innerText;
+		  if (txtValue.toUpperCase().indexOf(filter) > -1) {
+			tr[i].style.display = "";
+		  } else {
+			tr[i].style.display = "none";
+		  }
+		}
+	  }
+	}
+	
+	function searchECTS() {
+	  // Declare variables
+	  var input, filter, table, tr, td, i, txtValue;
+	  input = document.getElementById("searchECTS");
+	  filter = input.value.toUpperCase();
+	  table = document.getElementById("courses");
+	  tr = table.getElementsByTagName("tr");
+
+	  // Loop through all table rows, and hide those who don't match the search query
+	  for (i = 0; i < tr.length; i++) {
+		td = tr[i].getElementsByTagName("td")[2];
+		if (td) {
+		  txtValue = td.textContent || td.innerText;
+		  if (txtValue.toUpperCase().indexOf(filter) > -1) {
+			tr[i].style.display = "";
+		  } else {
+			tr[i].style.display = "none";
+		  }
+		}
+	  }
+	}	
+	
+	function searchScore() {
+	  // Declare variables
+	  var input, filter, table, tr, td, i, txtValue;
+	  input = document.getElementById("searchScore");
+	  filter = input.value.toUpperCase();
+	  table = document.getElementById("courses");
+	  tr = table.getElementsByTagName("tr");
+
+	  // Loop through all table rows, and hide those who don't match the search query
+	  for (i = 0; i < tr.length; i++) {
+		td = tr[i].getElementsByTagName("td")[3];
+		if (td) {
+		  txtValue = td.textContent || td.innerText;
+		  if (txtValue.toUpperCase().indexOf(filter) > -1) {
+			tr[i].style.display = "";
+		  } else {
+			tr[i].style.display = "none";
+		  }
+		}
+	  }
+	}	
+	</script>
+		
 </html>
