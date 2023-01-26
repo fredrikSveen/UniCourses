@@ -66,7 +66,16 @@ class Course {
         document.getElementById('courses_table').appendChild(tr1);
     }
     getIndex(){
-        return courses.indexOf(this);
+        return courses3.indexOf(this);
+    }
+}
+
+class Uni {
+    constructor(name){
+        this.name = name;
+    }
+    getIndex(){
+        return unis.indexOf(this);
     }
 }
 
@@ -76,9 +85,10 @@ function change_active (courses_index) {
 }
 
 //When you just parse an object from localstorage, you lose the original class methods so here we "get them back"
-function parseLocalstorage(unparsed){
-    var raw = JSON.parse(unparsed)
-    var courses = []
+function parseLocalstorage(unparsed, uni_courses_index){
+    var raw1 = JSON.parse(unparsed);
+    var raw = raw1[uni_courses_index];
+    var courses1 = [];
     for (var i = 0, l = raw.length; i < l; i++) {
         let name_short = raw[i].name_short;
         let name_long = raw[i].name_long;
@@ -95,11 +105,18 @@ function parseLocalstorage(unparsed){
             course.addReview(review);
         }
         course.updateScore();
-        courses.push(course);
+        courses1.push(course);
     }
-    return courses;
+    
+    return courses1;
 }
 
-//Get data from the localstorage every time a page load.
-var courses = parseLocalstorage(localStorage.getItem('courses'));
-var active_index = Number(localStorage.getItem('active_index'));
+var itemNotSet = (localStorage.getItem('uni_courses') == null);
+
+if (!itemNotSet)  {
+    //Get data from the localstorage every time a page load.
+    console.log('hi')
+    var uni_courses_index = Number(window.localStorage.getItem('uni_courses_index'));
+    var courses3 = parseLocalstorage(window.localStorage.getItem('uni_courses'), uni_courses_index);
+    var active_index = Number(window.localStorage.getItem('active_index'));
+}

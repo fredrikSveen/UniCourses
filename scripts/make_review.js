@@ -9,15 +9,17 @@ function registerReview(event){
         Number(formObj.workamount_score),
         formObj.text_review
     );
-    courses[active_index].addReview(new_review);
-    courses[active_index].updateScore();
+    courses3[active_index].addReview(new_review);
+    courses3[active_index].updateScore();
     //Write to localstorage, since the reviews.js uses the localstorage as a database.
-    window.localStorage.setItem('courses', JSON.stringify(courses))
+    var uni_courses = JSON.parse(window.localStorage.getItem('uni_courses'));
+    uni_courses[uni_courses_index] = courses3;
+    window.localStorage.setItem('uni_courses', JSON.stringify(uni_courses))
     //Redirect back to reviews.js, so you see your new review there.
     window.location.href="reviews.html";
 }
 
-document.getElementById('name_course_review_list').innerHTML = courses[active_index].name_long
+document.getElementById('name_course_review_list').innerHTML = courses3[active_index].name_long
 
 const form = document.getElementById('new_review_form');
 form.addEventListener('submit', registerReview);

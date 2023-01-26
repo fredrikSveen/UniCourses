@@ -24,6 +24,14 @@ function myFunction1() {
     document.getElementById("myDropdown").classList.toggle("show");
 }
 
-for (var i = 0, l = courses.length; i < l; i++) {
-    courses[i].showCourse();
+var eurecom = new Uni('EURECOM');
+var ntnu = new Uni('NTNU');
+var harvard = new Uni('Harvard');
+
+var unis = [eurecom, ntnu, harvard];
+
+for (var i = 0, l = courses3.length; i < l; i++) {
+    courses3[i].showCourse();
 }
+
+var change_title = document.getElementById('uni_title').innerHTML = unis[uni_courses_index].name;

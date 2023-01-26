@@ -1,5 +1,5 @@
 //Show all reviews for the active course
-courses[active_index].showReviews();
+courses3[active_index].showReviews();
 
 //Hide "Make new review"-button, if not logged in
 var loggedin = JSON.parse(localStorage.getItem('loggedin'));
