@@ -7,7 +7,7 @@
         <script src="../scripts/main.js" defer></script>
         <script src="../scripts/search.js" defer></script>
         <link rel="stylesheet" href="../style/style.css">
-        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="../style/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
@@ -21,7 +21,7 @@
                 </tr>
                 <tr>
                     <th><img src="../icons/icons8-left-arrow-50.png" width="30px"></th>
-                    <th><a id="back_btn" href="index.html">Back</a></th>
+                    <th><a id="back_btn" href="../index.html">Back</a></th>
                 </tr>
 				<tr>
                     <th><img src="../icons/icons8-user-30.png" width="30px"></th>
@@ -40,11 +40,16 @@
 					<input id="searchECTS" type="number" placeholder="Search by ECTS" onkeyup="searchECTSF()">
 				</form>
 			</div>
+
+            <br>
+			<br>
+			<br>
 			
             <div class="container">
 				<div class="responsive-table">
                     <table class="table" id="courses">
                         <thead>
+                            <tr class="spacer"><td colspan="100"></td></tr>
                             <tr class="header">
                                 <th style="width:50%;">Full course Name</th>
                                 <th style="width:30%;">Course shortname</th>
