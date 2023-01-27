@@ -50,7 +50,8 @@
     margin: auto;
     width: 100%;
     text-align: center;
-    font-size: larger;
+    font-size: 170px;
+	font-weight: bold;
   }
 
   
@@ -69,34 +70,14 @@
     border-radius: 20px 20px 20px 20px;
   }
   
-
-
-.flex-container {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-items: stretch;
-    align-content: stretch;
-    background-color: #DBE3FF;
-  }
-  
-  .flex-items {
-    display: block;
-    flex: 1;
-    flex-grow: 0;
-    flex-shrink: 1;
-    flex-basis: auto;
-    align-self: auto;
-    order: 0;
+  .right_table{
+    float: right;
   }
 
-#login_btn {
-    float: right;
-}
-#signup_btn {
-    float: right;
-}
+  .left_table{
+    float: left;
+  }
+
 
 .search {
 	  float: left;
@@ -121,9 +102,8 @@
 #searchInput{
 	float: left;
 	padding: 6px;
-	border: none;
-	background: #f0e1f5;
-	width: 65%;
+	border: 1px solid black;
+	width: 60%;
 	margin-top: 8px;
 	margin-left: 16px;
 	font-size: 17px;
@@ -132,8 +112,7 @@
 #searchECTS, #searchScore{
 	float: right;
 	padding: 6px;
-	border: none;
-	background: #f0e1f5;
+	border: 1px solid black;
 	margin-top: 8px;
 	margin-left: 16px;
 	font-size: 17px;

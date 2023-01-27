@@ -16,12 +16,14 @@
             <table class="left_table">
                 <tr>
                     <th><img src="icons/icons8-information-64.png" width="30px"></th>
-                    <th><a id="help_btn" href="index.html">Help</a> </th>
+                    <th><a id="help_btn" href="help.js">Help</a> </th>
                 </tr>
                 <tr>
                     <th><img src="icons/icons8-left-arrow-50.png" width="30px"></th>
                     <th><a id="back_btn" href="index.html">Back</a></th>
                 </tr>
+			</table>
+			<table class="right_table">
 				<tr>
                     <th><img src="icons/icons8-user-30.png" width="30px"></th>
                     <th><a id="signout_btn" href="index.html">Sign out</a></th>
@@ -35,8 +37,8 @@
 			<div class="search">
 				<form>
 					<input id="searchInput" type="text" placeholder="Search for courses" onkeyup="searchFunction()">
-					<input id="searchScore" type="number" placeholder="Search by minimum score" onkeyup="searchScoreF()">
-					<input id="searchECTS" type="number" placeholder="Search by ECTS" onkeyup="searchECTSF()">
+					<input style="width:16%;" id="searchScore" type="number" placeholder="Search by minimum score" onkeyup="searchScoreF()">
+					<input style="width:11%;" id="searchECTS" type="number" placeholder="Search by ECTS" onkeyup="searchECTSF()">
 				</form>
 			</div>
 			
