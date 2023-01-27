@@ -25,7 +25,7 @@ class UserSystem {
     }
     // If the email already exists
     email_exists(email){
-        if (email.toLowerCase() in users_saved){
+        if (email.toLowerCase()in users_saved){
             alert('Email already exists, please log in.');
             return false;
         }
@@ -35,7 +35,6 @@ class UserSystem {
     email_not_existing(email){
         if (email.toLowerCase() in users_saved){return true;}
         alert('Email does not exist, please sign up.');
-        email.style.color = "red";
         return false;
     }
     // If no password is written
@@ -116,7 +115,7 @@ class UserSystem {
             }
         }
     }
-
+    
 }
 
 function login_button(){
