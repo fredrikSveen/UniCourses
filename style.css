@@ -13,15 +13,15 @@
   }
 
   /* Style the top navigation bar */
-  .navbar {
+  .topnav {
     flex-direction: row;
     overflow: hidden;
     background-color: #fff;
     color: black;
   }
   
-  /* Style the navbar links */
-  .navbar a , .navbar i{
+  /* Style the topnav links */
+  .topnav a , .topnav i{
     float: left;
     float: left;
     display: block;
@@ -32,7 +32,7 @@
   }
   
   /* Change color on hover */
-  .navbar a:hover {
+  .topnav a:hover {
     background-color: #DBE3FF;
     -moz-border-radius-topleft: 10px;
     -moz-border-radius-topright: 10px;
