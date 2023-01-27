@@ -7,54 +7,56 @@
         <script src="../scripts/main.js" defer></script>
         <script src="../scripts/search.js" defer></script>
         <link rel="stylesheet" href="../style/style.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
 
-        <div class="navbar">
+        <div class="topnav">
             <i class="fa-regular fa-circle-info" style="color: white"></i>
-            <a id="help_btn" href="../index.html">Home</a>
-            <a id="login_btn" href="#">Log Out</a>
+            <table class="left_table">
+                <tr>
+                    <th><img src="icons/icons8-information-64.png" width="30px"></th>
+                    <th><a id="help_btn" href="index.html">Help</a> </th>
+                </tr>
+                <tr>
+                    <th><img src="icons/icons8-left-arrow-50.png" width="30px"></th>
+                    <th><a id="back_btn" href="index.html">Back</a></th>
+                </tr>
+				<tr>
+                    <th><img src="icons/icons8-user-30.png" width="30px"></th>
+                    <th><a id="signout_btn" href="index.html">Sign out</a></th>
+                </tr>
+            </table>
         </div>
 
         <div class="content">
             <h1 id="uni_title"></h1>
             
 			<div class="search">
-				<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for courses" class="fa fa-search">
-				
-				
-				<div class="dropdown">
-					<button onclick="myFunction1()" class="dropbtn">ECTS</button>
-					<div id="myDropdown" class="dropdown-content">
-					  <a href="#">2.5</a>
-					  <a href="#">5</a>
-					</div>
-				
-				<button onclick="myFunction1()" class="dropbtn">Score</button>
-					<div id="myDropdown" class="dropdown-content">
-					  <a href="#">1/5</a>
-					  <a href="#">2/5</a>
-					  <a href="#">3/5</a>
-					  <a href="#">4/5</a>
-					  <a href="#">5/5</a>
-					</div>
-					
-				</div>
+				<form>
+					<input id="searchInput" type="text" placeholder="Search for courses" onkeyup="searchFunction()">
+					<input id="searchScore" type="number" placeholder="Search by minimum score" onkeyup="searchScoreF()">
+					<input id="searchECTS" type="number" placeholder="Search by ECTS" onkeyup="searchECTSF()">
+				</form>
 			</div>
 			
-			<table id="courses">
-                <thead>
-                    <tr class="header">
-                        <th style="width:50%;">Full course Name</th>
-                        <th style="width:30%;">Course shortname</th>
-                        <th style="width:10%;">ETCS</th>
-                        <th style="width:10%;">Score</th>
-                    </tr>
-                </thead>
-                <tbody id="courses_table">
-                </tbody>
-			</table>
+            <div class="container">
+				<div class="responsive-table">
+                    <table class="table" id="courses">
+                        <thead>
+                            <tr class="header">
+                                <th style="width:50%;">Full course Name</th>
+                                <th style="width:30%;">Course shortname</th>
+                                <th style="width:10%;">ETCS</th>
+                                <th style="width:10%;">Score</th>
+                            </tr>
+                        </thead>
+                        <tbody id="courses_table">
+                        </tbody>
+                    </table>
+                </div>
+			</div>
         </div>
     </body>
 </html>

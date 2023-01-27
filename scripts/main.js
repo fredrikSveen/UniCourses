@@ -64,6 +64,13 @@ class Course {
             <td>${this.avg_score}</td>
         `;
         document.getElementById('courses_table').appendChild(tr1);
+        
+        let tr2 = document.createElement('tr');
+        tr2.setAttribute('class', 'spacer');
+        tr2.innerHTML = `
+            <td colspan="100"></td>
+        `;
+        document.getElementById('courses_table').appendChild(tr2);
     }
     getIndex(){
         return courses3.indexOf(this);
