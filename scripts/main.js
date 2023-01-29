@@ -13,14 +13,16 @@ class Review {
         let div1 = document.createElement('div');
         div1.setAttribute('class', 'test');
         div1.innerHTML = `
-            <div class='flex_container' style='border-bottom-style: solid;'>
-                <p>Teacher score: ${this.teacher_score}</p>
-                <p>Hardness score: ${this.hardness_score}</p>
-                <p>Workamount score: ${this.workamount_score}</p>
-                <p>Text review: ${this.text_review}</p>
-                <p>Overall score: ${this.score}</p>
-                <p>Written: ${this.date}</p>
+            <div class='flex-container' id='review'>
+                <p style="font-weight:bold;">Course review: </p>
+                <a>Teacher score: ${this.teacher_score}</a>
+                <a>Hardness score: ${this.hardness_score}</a>
+                <a>Workamount score: ${this.workamount_score}</a>
+                <a>Text: ${this.text_review}</a>
+                <a>Overall score: ${this.score}</a>
+                <a>Submitted: ${this.date}</a><br>
             </div>
+            <div class='spacer'><br></div>
         `;
         document.getElementById('review_container').appendChild(div1);
     }
@@ -54,19 +56,6 @@ class Course {
         this.avg_score = Math.round(((tmp_sum/num_reviews) + Number.EPSILON) * 100) /100;
     }
     showCourse(){
-        /*
-        var tbody = document.getElementById('courses_table');
-        var row = tbody.insertRow();
-        var cell1 = row.insertCell(0);
-        var cell2 = row.insertCell(1);
-        var cell3 = row.insertCell(2);
-        var cell4 = row.insertCell(3);
-        cell1.innerHTML = `<a href="reviews.html" onclick="return change_active(${this.getIndex()});">${this.name_long}</a>`;
-        cell2.innerHTML = this.name_short;
-        cell3.innerHTML = this.ects;
-        cell4.innerHTML = this.avg_score;
-        */
-        
         let tr1 = document.createElement('tr');
         let indx = this.getIndex()
         tr1.setAttribute('onClick', `change_active(${indx})`);
@@ -77,9 +66,25 @@ class Course {
             <td>${this.avg_score}</td>
         `;
         document.getElementById('courses_table').appendChild(tr1);
+        
+        let tr2 = document.createElement('tr');
+        tr2.setAttribute('class', 'spacer');
+        tr2.innerHTML = `
+            <td colspan="100"></td>
+        `;
+        document.getElementById('courses_table').appendChild(tr2);
     }
     getIndex(){
-        return courses.indexOf(this);
+        return courses3.indexOf(this);
+    }
+}
+
+class Uni {
+    constructor(name){
+        this.name = name;
+    }
+    getIndex(){
+        return unis.indexOf(this);
     }
 }
 
@@ -89,9 +94,10 @@ function change_active (courses_index) {
 }
 
 //When you just parse an object from localstorage, you lose the original class methods so here we "get them back"
-function parseLocalstorage(unparsed){
-    var raw = JSON.parse(unparsed)
-    var courses = []
+function parseLocalstorage(unparsed, uni_courses_index){
+    var raw1 = JSON.parse(unparsed);
+    var raw = raw1[uni_courses_index];
+    var courses1 = [];
     for (var i = 0, l = raw.length; i < l; i++) {
         let name_short = raw[i].name_short;
         let name_long = raw[i].name_long;
@@ -108,11 +114,46 @@ function parseLocalstorage(unparsed){
             course.addReview(review);
         }
         course.updateScore();
-        courses.push(course);
+        courses1.push(course);
     }
-    return courses;
+    
+    return courses1;
 }
 
-//Get data from the localstorage every time a page load.
-var courses = parseLocalstorage(localStorage.getItem('courses'));
-var active_index = Number(localStorage.getItem('active_index'));
+var itemNotSet = (localStorage.getItem('uni_courses') == null);
+
+if (!itemNotSet)  {
+    //Get data from the localstorage every time a page load.
+    var uni_courses_index = Number(window.localStorage.getItem('uni_courses_index'));
+    var courses3 = parseLocalstorage(window.localStorage.getItem('uni_courses'), uni_courses_index);
+    var active_index = Number(window.localStorage.getItem('active_index'));
+}
+
+// Changing the login button when you have signed in
+var loggedin_bool = JSON.parse(localStorage.getItem('loggedin'));
+if (loggedin_bool){
+    if (window.location.href.slice(-10) == "index.html"){
+        let login_div = document.getElementById("right_table");
+        login_div.innerHTML = `
+            <tr onclick="signout_btn()">
+                <th><a id="login_btn" href="index.html">Sign Out</a></th>
+                <th><img src="icons/icons8-user-30.png" width="30px"></th>
+            </tr>
+        `;
+    } else{
+        let login_div = document.getElementById("right_table");
+        login_div.innerHTML = `
+            <tr onclick="signout_btn()">
+                <th><a id="login_btn" href="../index.html">Sign Out</a></th>
+                <th><img src="../icons/icons8-user-30.png" width="30px"></th>
+            </tr>
+        `;
+    }
+    
+}
+// Going back to "Log In | Sign Up" when you click "Sign Out"
+function signout_btn(){
+    if (loggedin_bool){
+        localStorage.setItem('loggedin', JSON.stringify(false));
+    }
+}

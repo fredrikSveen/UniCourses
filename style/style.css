@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    font-weight: 200;
+  }
+  
+  body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-weight: 200;
+  }
+
+  /* Style the top navigation bar */
+  .topnav {
+    flex-direction: row;
+    overflow: hidden;
+    background-color: #fff;
+    color: black;
+  }
+  
+  /* Style the topnav links */
+  .topnav a , .topnav i{
+    float: left;
+    float: left;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 5px 10px;
+    text-decoration: none;
+  }
+  
+  /* Change color on hover */
+  .topnav a:hover {
+    background-color: #DBE3FF;
+    -moz-border-radius-topleft: 10px;
+    -moz-border-radius-topright: 10px;
+    -moz-border-radius-bottomright: 10px;
+    -moz-border-radius-bottomleft: 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+    transition: 0.5s;
+    font-size: large;
+  }
+  
+  /*Style the header*/
+  .header {
+    padding: 10px;
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    font-size: 170px;
+	font-weight: bold;
+  }
+
+  
+  /* Style the content */
+  .content {
+    background-color: #DBE3FF;
+    padding: 10px;
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    -moz-border-radius-topleft: 20px;
+    -moz-border-radius-topright: 20px;
+    -moz-border-radius-bottomright: 20px;
+    -moz-border-radius-bottomleft: 20px;
+    -webkit-border-radius: 20px 20px 20px 20px;
+    border-radius: 20px 20px 20px 20px;
+  }
+  
+/* Table styling */
+table#right_table{
+  float: right;
+}
+
+table#left_table{
+  float: left;
+}
+
+
+.search {
+	  float: left;
+	  width: 100%;
+	  padding: 6px 10px;
+	  margin-top: 8px;
+	  margin-right: 16px;
+	  background: #fff;
+	  font-size: 17px;
+	  border: none;
+	  cursor: pointer;
+	  -moz-border-radius-topleft: 10px;
+	  -moz-border-radius-topright: 10px;
+	  -moz-border-radius-bottomright: 10px;
+	  -moz-border-radius-bottomleft: 10px;
+	  -webkit-border-radius: 10px 10px 10px 10px;
+	  border-radius: 10px 10px 10px 10px;
+	  transition: 0.5s;
+
+}	
+
+#searchInput{
+	float: left;
+	padding: 6px;
+	border: 1px solid black;
+    -webkit-border-radius: 10px 10px 10px 10px;
+	width: 60%;
+	margin-top: 8px;
+	margin-left: 16px;
+	font-size: 17px;
+}
+
+#searchECTS, #searchScore{
+	float: right;
+	padding: 6px;
+	border: 1px solid black;
+	-webkit-border-radius: 10px 10px 10px 10px;
+	margin-top: 8px;
+	margin-left: 16px;
+	font-size: 17px;
+}
+
+/* Table */
+
+.responsive-table {
+  padding: 20px;
+  border-radius: 4px; }
+
+.table {
+	min-width: 900px; 
+	border-collapse: collapse; /* Collapse borders */
+	width: 100%; /* Full-width */
+	font-size: 18px; /* Increase font-size */
+  }
+  
+  .table thead tr, .able thead th {
+    border-top: none;
+    border-bottom: none !important;
+    font-size: 15px;
+	font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: .1rem; 
+	}
+	
+  .table tbody th, .table tbody td {
+    color: #777;
+    font-weight: 400;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    font-weight: 300; 
+	}
+	
+    .table tbody th small, .table tbody td small {
+      color: #b3b3b3;
+      font-weight: 300; 
+	  }
+	  
+  .table tbody tr:not(.spacer) {
+    border-radius: 7px;
+    overflow: hidden;
+    -webkit-transition: .3s all ease;
+    -o-transition: .3s all ease;
+    transition: .3s all ease; 
+	}
+	  
+  .table tbody tr th, .table tbody tr td {
+    background: #fff;
+    border: none; 
+	}
+	
+    .table tbody tr th:first-child, .table tbody tr td:first-child {
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px; 
+	  }
+	  
+    .table tbody tr th:last-child, .table tbody tr td:last-child {
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px; 
+	  }
+	  
+  .table tbody tr.spacer td {
+    padding: 0 !important;
+    height: 10px;
+    border-radius: 0 !important;
+    background: transparent !important; 
+	}
+
+
+  /* Change color on hover */
+  .course a:hover {
+    background-color: #DBE3FF;
+    -moz-border-radius-topleft: 10px;
+    -moz-border-radius-topright: 10px;
+    -moz-border-radius-bottomright: 10px;
+    -moz-border-radius-bottomleft: 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+    transition: 0.5s;
+    font-size: large;
+  }
+  /* Style the topnav links */
+  .course a , .course i{
+    float: left;
+    float: left;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 5px 10px;
+    text-decoration: none;
+  }
