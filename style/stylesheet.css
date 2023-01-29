@@ -209,10 +209,11 @@ input[type=text] {
   border: none;
 }
 
-.search-container button {
+.search-container {
   padding: 6px 10px;
   margin-top: 8px;
   margin-right: 16px;
+  margin-left:20%;
   background: #fff;
   font-size: 17px;
   border: none;
@@ -224,6 +225,10 @@ input[type=text] {
   -webkit-border-radius: 10px 10px 10px 10px;
   border-radius: 10px 10px 10px 10px;
   transition: 0.5s;
+	border: 1px solid black;
+	width: 60%;
+  text-align: left;
+  align-self: center;
 
 }
 
