@@ -120,6 +120,7 @@
   -moz-border-radius-bottomleft: 0px;
   -webkit-border-radius: 20px 20px 0px 0px;
   border-radius: 20px 20px 0px 0px;
+  align-content: center;
 }
   
 /* Style the footer */
@@ -278,4 +279,5 @@ fieldset {
 .spacer {
   background-color: #DBE3FF;
   height:20px;
+  width:100%;
 }
