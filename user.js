@@ -1,5 +1,8 @@
 // All the saved users
 var users_saved = JSON.parse(localStorage.getItem('users'));
+if (users_saved == null){
+    users_saved = {};
+}
 
 // USER CLASS
 class UserSystem {
@@ -140,7 +143,3 @@ function register_button() {
         alert('Registered, welcome ' + namestring + '. Please log in.');
     }
 }
-
-// Dummy user:
-//let user1 = new UserSystem();
-//user1.register('Test','Test','test@test.com','Test12345','Test12345');
