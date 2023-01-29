@@ -13,14 +13,16 @@ class Review {
         let div1 = document.createElement('div');
         div1.setAttribute('class', 'test');
         div1.innerHTML = `
-            <div class='flex_container' style='border-bottom-style: solid;'>
-                <p>Teacher score: ${this.teacher_score}</p>
-                <p>Hardness score: ${this.hardness_score}</p>
-                <p>Workamount score: ${this.workamount_score}</p>
-                <p>Text review: ${this.text_review}</p>
-                <p>Overall score: ${this.score}</p>
-                <p>Written: ${this.date}</p>
+            <div class='flex-container' id='review'>
+                <p style="font-weight:bold;">Course review: </p>
+                <a>Teacher score: ${this.teacher_score}</a>
+                <a>Hardness score: ${this.hardness_score}</a>
+                <a>Workamount score: ${this.workamount_score}</a>
+                <a>Text: ${this.text_review}</a>
+                <a>Overall score: ${this.score}</a>
+                <a>Submitted: ${this.date}</a><br>
             </div>
+            <div class='spacer'><br></div>
         `;
         document.getElementById('review_container').appendChild(div1);
     }

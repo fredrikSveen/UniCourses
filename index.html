@@ -8,13 +8,12 @@
         <script src="scripts/main.js" defer></script>
         <script src="scripts/make_data.js" defer></script>
         <script src="scripts/index.js" defer></script>
+        <script src="scripts/help.js" defer></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    </head>
     <body>
 
         <!--Navigation bar-->
         <div class="topnav">
-            <i class="fa-regular fa-circle-info" style="color: white"></i>
-            
             <table id="left_table">
                 <tr>
                     <th><img src="icons/icons8-information-64.png" width="30px"></th>
@@ -28,6 +27,19 @@
                     <th><a id="login_btn" href="#">Log In | Sign In</a></th>
                 </tr>
             </table>
+        </div>
+
+        <!-- Pop-up -->
+        <div id="myPopUp" class="popUp">
+            <!-- Pop-up content -->
+            <div class="pop-up-content">
+                <span class="close">&times;</span>
+                <p style="font-weight:bold;">Welcome to UniCourses!</p>
+                <p>To use this website, simply choose your university to read course reviews from other students.</p>
+                <p>If you want to write a review yourself, you can go to the register/log in page in the upper right corner.</p>
+                <p>Only registered users can write reviews.</p>
+                <p>UniCourses - “For students by students”</p>
+            </div>
         </div>
 
         <!--Header-->
@@ -45,13 +57,13 @@
             <div class="search-container">
                 <form action="#">
                     <input type="text" placeholder="Search.." name="search">
-                    <button type="submit"><i class="fa fa-search"></i></button>
+                    <!-- <button type="submit"><i class="fa fa-search"></i></button> -->
                 </form>
             </div>
             <div class="flex-container" id="unis_list"></div>
 
             <!--Footer-->
-            <div class="flex-container">
+            <div class="footer">
                 <table id="table1">
                 <tr>
                     <th><div class="flex-items"><img src="icons/icons8-home-page-50.png" width="40px"></div></th>
