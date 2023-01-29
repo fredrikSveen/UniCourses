@@ -124,8 +124,25 @@ var itemNotSet = (localStorage.getItem('uni_courses') == null);
 
 if (!itemNotSet)  {
     //Get data from the localstorage every time a page load.
-    console.log('hi')
     var uni_courses_index = Number(window.localStorage.getItem('uni_courses_index'));
     var courses3 = parseLocalstorage(window.localStorage.getItem('uni_courses'), uni_courses_index);
     var active_index = Number(window.localStorage.getItem('active_index'));
+}
+
+// Changing the login button when you have signed in
+var loggedin_bool = JSON.parse(localStorage.getItem('loggedin'));
+if (loggedin_bool){
+    let login_div = document.getElementById("right_table");
+    login_div.innerHTML = `
+        <tr onclick="signout_btn()">
+            <th><a id="login_btn" href="index.html">Sign Out</a></th>
+            <th><img src="icons/icons8-user-30.png" width="30px"></th>
+        </tr>
+    `;
+}
+// Going back to "Log In | Sign Up" when you click "Sign Out"
+function signout_btn(){
+    if (loggedin_bool){
+        localStorage.setItem('loggedin', JSON.stringify(false));
+    }
 }
