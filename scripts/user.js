@@ -1,7 +1,7 @@
 // All the saved users
 var users_saved = JSON.parse(localStorage.getItem('users'));
 if (users_saved == null) {
-    users_saved = []
+    users_saved = {};
 }
 
 // USER CLASS
@@ -86,7 +86,7 @@ class UserSystem {
                     if (users_saved[email.toLowerCase()][0] == password){
                         // Saving the logged in label to use in other HTML files
                         localStorage.setItem('loggedin', JSON.stringify(true));
-                        location.assign("index.html");
+                        location.assign("../index.html");
                     }
                     else {
                         //alert('Wrong password. The password you wrote was '+ password+', but the real password is ' + users[email.toLowerCase()][0]);
@@ -106,10 +106,10 @@ class UserSystem {
                         if (this.register_password(password)){
                             if (this.repeat_password_check(password, repeated_password)){
                                 var namestring = firstname + ' ' + lastname;
-
                                 //Updating the localStorage by adding the new user
                                 users_saved[email.toLowerCase()] = [password, namestring];
-                                localStorage.setItem('users', JSON.stringify(users_saved));
+                                console.log(users_saved);
+                                window.localStorage.setItem('users', JSON.stringify(users_saved));
                                 return true;
                             }
                         }
@@ -117,6 +117,7 @@ class UserSystem {
                 }
             }
         }
+        return false;
     }
     
 }
@@ -138,6 +139,7 @@ function register_button() {
 
     let new_user = new UserSystem();
     var registrered_true = new_user.register(reg_firstname,reg_lastname,reg_email,reg_password,reg_repeat_password);
+    console.log(registrered_true);
     if (registrered_true){
         var namestring = reg_firstname + ' ' + reg_lastname;
         alert('Registered, welcome ' + namestring + '. Please log in.');
