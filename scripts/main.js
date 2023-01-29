@@ -132,13 +132,24 @@ if (!itemNotSet)  {
 // Changing the login button when you have signed in
 var loggedin_bool = JSON.parse(localStorage.getItem('loggedin'));
 if (loggedin_bool){
-    let login_div = document.getElementById("right_table");
-    login_div.innerHTML = `
-        <tr onclick="signout_btn()">
-            <th><a id="login_btn" href="index.html">Sign Out</a></th>
-            <th><img src="icons/icons8-user-30.png" width="30px"></th>
-        </tr>
-    `;
+    if (window.location.href.slice(-10) == "index.html"){
+        let login_div = document.getElementById("right_table");
+        login_div.innerHTML = `
+            <tr onclick="signout_btn()">
+                <th><a id="login_btn" href="index.html">Sign Out</a></th>
+                <th><img src="icons/icons8-user-30.png" width="30px"></th>
+            </tr>
+        `;
+    } else{
+        let login_div = document.getElementById("right_table");
+        login_div.innerHTML = `
+            <tr onclick="signout_btn()">
+                <th><a id="login_btn" href="../index.html">Sign Out</a></th>
+                <th><img src="../icons/icons8-user-30.png" width="30px"></th>
+            </tr>
+        `;
+    }
+    
 }
 // Going back to "Log In | Sign Up" when you click "Sign Out"
 function signout_btn(){

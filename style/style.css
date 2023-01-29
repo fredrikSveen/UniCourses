@@ -70,13 +70,14 @@
     border-radius: 20px 20px 20px 20px;
   }
   
-  .right_table{
-    float: right;
-  }
+/* Table styling */
+table#right_table{
+  float: right;
+}
 
-  .left_table{
-    float: left;
-  }
+table#left_table{
+  float: left;
+}
 
 
 .search {
