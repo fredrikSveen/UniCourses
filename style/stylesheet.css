@@ -178,7 +178,10 @@ table#table1 {
   text-align: center;
 }
 
-#login_btn, #signup_btn {
+#login_btn {
+  float: right;
+}
+#signup_btn {
   float: right;
 }
 

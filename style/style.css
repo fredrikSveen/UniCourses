@@ -23,7 +23,6 @@
   /* Style the topnav links */
   .topnav a , .topnav i{
     float: left;
-    float: left;
     display: block;
     color: black;
     text-align: center;
@@ -44,14 +43,7 @@
     font-size: large;
   }
   
-  /*Style the header*/
-  .header {
-    padding: 10px;
-    margin: auto;
-    width: 100%;
-    text-align: center;
-    font-size: larger;
-  }
+  
 
   
   /* Style the content */
@@ -67,6 +59,7 @@
     -moz-border-radius-bottomleft: 20px;
     -webkit-border-radius: 20px 20px 20px 20px;
     border-radius: 20px 20px 20px 20px;
+    align-content: center;
   }
   
 
@@ -90,6 +83,15 @@
     align-self: auto;
     order: 0;
   }
+
+/* Table styling */
+table#right_table{
+  float: right;
+}
+
+table#left_table{
+  float: left;
+}
 
 #login_btn {
     float: right;
